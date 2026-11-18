@@ -1,4 +1,5 @@
 "use client";
+import BurgerMenu from "./Burger";
 
 export default function Header() {
   return (
@@ -10,6 +11,7 @@ export default function Header() {
           </h1>
           <p>HAVE A GOOD TIME</p>
         </nav>
+        <BurgerMenu />
       </header>
 
       <style jsx>{`
