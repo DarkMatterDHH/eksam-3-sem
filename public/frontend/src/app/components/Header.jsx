@@ -1,71 +1,53 @@
-"use client";
+
 import BurgerMenu from "./Burger";
 
 export default function Header() {
   return (
-    <>
-      <header className="header">
-        <nav className="header-content">
-          <h1>
-            NIGHT<span>CLUB</span>
-          </h1>
-          <p>HAVE A GOOD TIME</p>
-        </nav>
-        <BurgerMenu />
-      </header>
+    <section
+      className="
+        relative flex items-center justify-between
+        border-y-[3px] border-[#ff2670]
+        bg-[#080808]
+        px-5 py-6
+        sm:px-8 sm:py-8
+        md:px-12 md:py-10
+      "
+    >
+      {/* Top-left pink corner */}
+      <div
+        aria-hidden="true"
+        className="
+          pointer-events-none absolute top-0 left-0
+          h-7 w-7 bg-[#ff2670]
+          [clip-path:polygon(0_0,100%_0,0_100%)]
+          md:h-11 md:w-11
+        "
+      />
 
-      <style jsx>{`
-        .header {
-          position: relative;
-          background: #080808;
-          border-top: 3px solid #ff2670;
-          border-bottom: 3px solid #ff2670;
-          padding: 40px;
-          overflow: hidden;
-        }
+      {/* Logo */}
+      <div className="relative z-10">
+        <h1 className="text-2xl font-bold tracking-wide text-white sm:text-3xl md:text-4xl">
+          NIGHT<span className="text-[#ff2670]">CLUB</span>
+        </h1>
 
-        .header::before {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 45px;
-          height: 45px;
-          background: #ff2670;
-          clip-path: polygon(0 0, 100% 0, 0 100%);
-        }
+        <p className="mt-1 text-[9px] tracking-[0.25em] text-white sm:text-xs sm:tracking-[0.35em] md:text-sm md:tracking-[0.4em]">
+          HAVE A GOOD TIME
+        </p>
+      </div>
 
-        .header::after {
-          content: "";
-          position: absolute;
-          bottom: 0;
-          right: 0;
-          width: 45px;
-          height: 45px;
-          background: #ff2670;
-          clip-path: polygon(100% 0, 100% 100%, 0 100%);
-        }
+      {/* Burger */}
+      <BurgerMenu />
 
-        .header-content {
-          position: relative;
-          z-index: 1;
-        }
-
-        .header h1 {
-          color: white;
-          font-size: 36px;
-          font-weight: bold;
-        }
-
-        .header h1 span {
-          color: #ff2670;
-        }
-
-        .header p {
-          color: white;
-          letter-spacing: 6px;
-        }
-      `}</style>
-    </>
+      {/* Bottom-right pink corner */}
+      <div
+        aria-hidden="true"
+        className="
+          pointer-events-none absolute right-0 bottom-0
+          h-7 w-7 bg-[#ff2670]
+          [clip-path:polygon(100%_0,100%_100%,0_100%)]
+          md:h-11 md:w-11
+        "
+      />
+    </section>
   );
 }
