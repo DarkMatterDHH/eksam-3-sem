@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Header from "./components/Header";
-import Hero from "./components/Hero";
+import Layout from "./components/Layout";
 import "./globals.css";
 import { usePathname } from "next/dist/client/components/navigation";
 
@@ -20,19 +19,18 @@ export const metadata: Metadata = {
   description: "Have a good time",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
-  const pathname = usePathname();
-  const isHome = pathname === "/";
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        {" "}
-        {isHome && <Hero />}
-        <Header />
-        {children}
+        <Layout>{children}</Layout>
       </body>
     </html>
   );
